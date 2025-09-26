@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 80
+const SPEED:float = 80
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,3 +10,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.y += delta * SPEED
+	
+	if position.y > get_viewport_rect().end.y:
+		set_process(false)
+		queue_free()

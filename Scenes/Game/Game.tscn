@@ -16,3 +16,9 @@ position = Vector2(503, 602)
 
 [node name="Gem" parent="." instance=ExtResource("3_y3kpf")]
 position = Vector2(318, 253)
+
+[node name="Gem2" parent="." instance=ExtResource("3_y3kpf")]
+position = Vector2(824, 393)
+
+[node name="Gem3" parent="." instance=ExtResource("3_y3kpf")]
+position = Vector2(161, 449)
