@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	
 	var movement = Input.get_axis("Left", "Right")
 	position.x += delta * movement * SPEED
+	print("HELLO WORLD")
 	position.x = clampf(
 		position.x,
 		get_viewport_rect().position.x,
