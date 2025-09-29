@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://3lpijg7026xr"]
+[gd_scene load_steps=5 format=3 uid="uid://3lpijg7026xr"]
 
+[ext_resource type="Script" uid="uid://cfir5bv7pb4sd" path="res://Scenes/Game/Game.gd" id="1_ln2h6"]
 [ext_resource type="Texture2D" uid="uid://b51tnhagittnd" path="res://assets/GameBg.png" id="1_xbxml"]
 [ext_resource type="PackedScene" uid="uid://nksdeyr553sq" path="res://Scenes/Paddle/Paddle.tscn" id="2_ln2h6"]
 [ext_resource type="PackedScene" uid="uid://d7lfbj2x3tkx" path="res://Scenes/Gem/Gem.tscn" id="3_y3kpf"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ln2h6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576.2, 325.8)
@@ -15,10 +17,12 @@ texture = ExtResource("1_xbxml")
 position = Vector2(503, 602)
 
 [node name="Gem" parent="." instance=ExtResource("3_y3kpf")]
-position = Vector2(318, 253)
+position = Vector2(342, 94)
 
 [node name="Gem2" parent="." instance=ExtResource("3_y3kpf")]
-position = Vector2(824, 393)
+position = Vector2(815, 174)
 
 [node name="Gem3" parent="." instance=ExtResource("3_y3kpf")]
-position = Vector2(161, 449)
+position = Vector2(622, 9)
+
+[connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
