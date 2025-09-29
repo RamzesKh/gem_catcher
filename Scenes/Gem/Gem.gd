@@ -12,5 +12,12 @@ func _process(delta: float) -> void:
 	position.y += delta * SPEED
 	
 	if position.y > get_viewport_rect().end.y:
-		set_process(false)
-		queue_free()
+		die()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	die()
+
+func die() -> void:
+	set_process(false)
+	queue_free()
