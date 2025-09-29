@@ -12,10 +12,15 @@ func _process(delta: float) -> void:
 	
 	var movement = Input.get_axis("Left", "Right")
 	position.x += delta * movement * SPEED
-	print("HELLO WORLD")
+
 	position.x = clampf(
 		position.x,
 		get_viewport_rect().position.x,
 		get_viewport_rect().end.x
 		
 	)
+
+
+
+func _on_area_entered(area: Area2D) -> void:
+	print("UHU")
