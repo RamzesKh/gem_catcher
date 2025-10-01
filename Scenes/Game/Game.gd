@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var paddle: Area2D = $Paddle
 @onready var spawn_timer: Timer = $Timer
+@onready var score_sound: AudioStreamPlayer2D = $ScoreSound
+const EXPLODE = preload("res://assets/explode.wav")
+@onready var background_sound: AudioStreamPlayer = $BackgroundSound
 
 const GEM = preload("res://Scenes/Gem/Gem.tscn")
 const MARGIN = 20
@@ -12,7 +15,9 @@ func _ready() -> void:
 	
 func stop_all() -> void:
 	spawn_timer.stop()
-	
+	background_sound.stop()
+	background_sound.stream = EXPLODE
+	background_sound.play()
 	for child in get_children():
 		if child is Gem:
 			child.set_process(false)
@@ -30,7 +35,9 @@ func spawn_gem() -> void:
 	
 	
 func _on_paddle_area_entered(area: Area2D) -> void:
-	print("COLLISION PADDLE")
+	if not score_sound.playing:
+		score_sound.position = area.position
+		score_sound.play()
 	
 	
 func _on_gem_off_screen() -> void:
