@@ -1,11 +1,14 @@
 extends Area2D
 
+class_name Gem
+
+
 signal gem_off_screen
 
 
 
 
-const SPEED:float = 80
+const SPEED:float = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
