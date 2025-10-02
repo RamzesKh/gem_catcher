@@ -30,5 +30,18 @@ parameters/looping = true
 [node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_y3kpf")
 
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 99.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(0.837925, 0.345485, 0.240201, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.725175, 2.5028e-06, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 15
+theme_override_font_sizes/font_size = 52
+text = "000"
+
 [connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

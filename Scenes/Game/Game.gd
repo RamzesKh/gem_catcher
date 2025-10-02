@@ -5,10 +5,11 @@ extends Node2D
 @onready var score_sound: AudioStreamPlayer2D = $ScoreSound
 const EXPLODE = preload("res://assets/explode.wav")
 @onready var background_sound: AudioStreamPlayer = $BackgroundSound
+@onready var score_label: Label = $ScoreLabel
 
 const GEM = preload("res://Scenes/Gem/Gem.tscn")
 const MARGIN = 20
-
+var SCORE : int = 0
 
 func _ready() -> void:
 	spawn_gem()
@@ -38,6 +39,9 @@ func _on_paddle_area_entered(area: Area2D) -> void:
 	if not score_sound.playing:
 		score_sound.position = area.position
 		score_sound.play()
+	SCORE = SCORE + 1
+	score_label.text = "%03d" % SCORE
+
 	
 	
 func _on_gem_off_screen() -> void:
