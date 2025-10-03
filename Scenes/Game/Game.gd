@@ -3,17 +3,18 @@ extends Node2D
 @onready var paddle: Area2D = $Paddle
 @onready var spawn_timer: Timer = $Timer
 @onready var score_sound: AudioStreamPlayer2D = $ScoreSound
-const EXPLODE = preload("res://assets/explode.wav")
 @onready var background_sound: AudioStreamPlayer = $BackgroundSound
 @onready var score_label: Label = $ScoreLabel
-
+const EXPLODE = preload("res://assets/explode.wav")
 const GEM = preload("res://Scenes/Gem/Gem.tscn")
 const MARGIN = 20
 var SCORE : int = 0
 
+	
 func _ready() -> void:
 	spawn_gem()
-	
+
+
 func stop_all() -> void:
 	spawn_timer.stop()
 	background_sound.stop()
