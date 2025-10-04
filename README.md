@@ -1,1 +1,1 @@
-# godot_game_2
+# Gem Catcher Game
